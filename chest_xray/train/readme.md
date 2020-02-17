@@ -1,1 +1,1 @@
-Here is the folder of training set.
+Here is the folder of train image set.
