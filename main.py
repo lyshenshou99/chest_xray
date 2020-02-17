@@ -19,8 +19,8 @@ def swish_activation(x):
     return (K.sigmoid(x) * x)
 
 
-TRAIN_DIR = "../chest_xray/train/"
-TEST_DIR = "../chest_xray/test/"
+TRAIN_DIR = "./chest_xray/train/"
+TEST_DIR = "./chest_xray/test/"
 
 X_train, y_train = get_data(TRAIN_DIR)
 X_test , y_test = get_data(TEST_DIR)
