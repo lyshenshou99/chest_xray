@@ -1,1 +1,1 @@
-Here is the location of training set.
+Here is the folder of training set.
