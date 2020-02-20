@@ -10,18 +10,18 @@ import matplotlib.pyplot as plt
 from keras import backend as K
 import xlwt
 
+def swish_activation(x):
+    return K.sigmoid(x) * x
+
+
+get_custom_objects().update({'swish_activation': Activation(swish_activation)})
+
 
 class Solve:
     def __init__(self, path, image='none', folder='none'):
         self.path = path
         self.image = image
         self.predect_dir = folder
-
-    @property
-    def swish_activation(x):
-        return K.sigmoid(x) * x
-
-    get_custom_objects().update({'swish_activation': Activation(swish_activation)})
 
     @staticmethod
     def ShowImage(img_dir):
@@ -30,23 +30,20 @@ class Solve:
         plt.show()
 
     def solve_one(self):
-        test = os.listdir(self.image)
-        del test[0]
+        test = ['NORMAL', 'PENUMONIA']
         model = load_model(self.path)
         pre_x = []
 
         self.ShowImage(self.image)
         input_image = cv2.imread(self.image)
-        input_image = resize(input, (3, 150, 150))
+        input_image = resize(input_image, (3, 150, 150))
 
-        pre_x.append(input)
+        pre_x.append(input_image)
         pre_x = np.asarray(pre_x)
         pre_y = model.predict(pre_x)
         max_index = np.argmax(pre_y)
 
-        print('NORMAL概率为：{:.6f}\n'.format(pre_y[0][0]))
-        print('PNEUMONIA概率为：{:.6f}\n'.format(pre_y[0][1]))
-        print("所以此图大概率为：{}\n".format(test[max_index]))
+        return test[max_index]
 
     @staticmethod
     def set_style(name, height, bold=False):
