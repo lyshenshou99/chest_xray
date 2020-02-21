@@ -71,7 +71,7 @@ class Ui_mainWindow(QtWidgets.QMainWindow):
         mainWindow.setWindowTitle(_translate("mainWindow", "康康肺吧--你的肺部健康管家"))
         self.radioButton_image.setText(_translate("mainWindow", "Image"))
         self.radioButton_folder.setText(_translate("mainWindow", "Folder"))
-        self.pushButton.setText(_translate("mainWindow", "Predection"))
+        self.pushButton.setText(_translate("mainWindow", "Prediction"))
         self.lineEdit_path.setText(_translate("mainWindow", "path"))
         self.pushButton_choosepath.setText(_translate("mainWindow", "Click here to choose the path"))
 
