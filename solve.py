@@ -21,7 +21,7 @@ class Solve:
     def __init__(self, path, image='none', folder='none'):
         self.path = path
         self.image = image
-        self.predect_dir = folder
+        self.predict_dir = folder
 
     def solve_one(self):
         test = ['NORMAL', 'PENUMONIA']
@@ -56,9 +56,9 @@ class Solve:
     def solve_excel(self):
         images = []
         label = []
-        for fn in os.listdir(self.predect_dir):
+        for fn in os.listdir(self.predict_dir):
             if fn.endswith('jpeg'):
-                fd = os.path.join(self.predect_dir, fn)
+                fd = os.path.join(self.predict_dir, fn)
                 images.append(fd)
                 self.image = fd
                 n = self.solve_one()
